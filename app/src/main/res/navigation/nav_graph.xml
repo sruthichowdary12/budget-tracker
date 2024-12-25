@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authenticationFragment">
+
+    <fragment
+        android:id="@+id/accounts"
+        android:name="com.example.budgettracker.accounts.AccountsFragment"
+        android:label="fragment_accounts"
+        tools:layout="@layout/fragment_accounts" >
+        <action
+            android:id="@+id/action_accounts_to_addAccountFragment"
+            app:destination="@id/addAccountFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_accounts_to_accountInformationFragment"
+            app:destination="@id/accountInformationFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/operations"
+        android:name="com.example.budgettracker.operations.OperationsFragment"
+        android:label="fragment_operations"
+        tools:layout="@layout/fragment_operations" >
+        <action
+            android:id="@+id/action_operations_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_operations_to_addIncomeFragment"
+            app:destination="@id/addIncomeFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_operations_to_transferFragment"
+            app:destination="@id/transferFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_operations_to_authenticationFragment"
+            app:destination="@id/authenticationFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.budgettracker.operations.expense.ExpenseFragment"
+        android:label="fragment_add_expense"
+        tools:layout="@layout/fragment_add_expense">
+        <action
+            android:id="@+id/action_addExpenseFragment_to_operations"
+            app:destination="@id/operations"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_addExpenseFragment_to_addIncomeFragment"
+            app:destination="@id/addIncomeFragment"
+            app:popUpTo="@id/operations"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            />
+        <action
+            android:id="@+id/action_addExpenseFragment_to_transferFragment"
+            app:destination="@id/transferFragment"
+            app:popUpTo="@id/operations"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addIncomeFragment"
+        android:name="com.example.budgettracker.operations.income.IncomeFragment"
+        android:label="fragment_add_income"
+        tools:layout="@layout/fragment_add_income" >
+        <action
+            android:id="@+id/action_addIncomeFragment_to_operations"
+            app:destination="@id/operations"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_addIncomeFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment"
+            app:popUpTo="@id/operations"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_addIncomeFragment_to_transferFragment"
+            app:destination="@id/transferFragment"
+            app:popUpTo="@id/operations"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addAccountFragment"
+        android:name="com.example.budgettracker.accounts.AddAccountFragment"
+        android:label="fragment_add_account"
+        tools:layout="@layout/fragment_add_account" />
+    <fragment
+        android:id="@+id/transferFragment"
+        android:name="com.example.budgettracker.operations.transfer.TransferFragment"
+        android:label="fragment_transfer"
+        tools:layout="@layout/fragment_transfer" >
+        <action
+            android:id="@+id/action_transferFragment_to_operations"
+            app:destination="@id/operations"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_transferFragment_to_addIncomeFragment"
+            app:destination="@id/addIncomeFragment"
+            app:popUpTo="@id/operations"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_transferFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment"
+            app:popUpTo="@id/operations"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/analytics"
+        android:name="com.example.budgettracker.analytics.AnalyticsFragment"
+        android:label="fragment_analytics"
+        tools:layout="@layout/fragment_analytics" >
+        <action
+            android:id="@+id/action_analytics_to_categoryAnalyticsFragment"
+            app:destination="@id/categoryAnalyticsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_analytics_to_monthAnalyticsFragment"
+            app:destination="@id/monthAnalyticsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountInformationFragment"
+        android:name="com.example.budgettracker.accounts.AccountInformationFragment"
+        android:label="fragment_account_information"
+        tools:layout="@layout/fragment_account_information" >
+        <action
+            android:id="@+id/action_accountInformationFragment_to_editAccountFragment"
+            app:destination="@id/editAccountFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/incomeBarFragment"
+        android:name="com.example.budgettracker.analytics.IncomeBarFragment"
+        android:label="IncomeBarFragment" />
+    <fragment
+        android:id="@+id/incomePieFragment"
+        android:name="com.example.budgettracker.analytics.IncomePieFragment"
+        android:label="IncomePieFragment" />
+    <fragment
+        android:id="@+id/expenseBarFragment"
+        android:name="com.example.budgettracker.analytics.ExpenseBarFragment"
+        android:label="fragment_expense_bar"
+        tools:layout="@layout/fragment_bar" />
+    <fragment
+        android:id="@+id/expensePieFragment"
+        android:name="com.example.budgettracker.analytics.ExpensePieFragment"
+        android:label="fragment_income_pie"
+        tools:layout="@layout/fragment_income_pie" />
+    <dialog
+        android:id="@+id/informationFragment"
+        android:name="com.example.budgettracker.operations.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_changeOperationFragment"
+            app:destination="@id/changeOperationFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+        <action
+            android:id="@+id/action_informationFragment_to_changeTransferFragment"
+            app:destination="@id/changeTransferFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </dialog>
+    <fragment
+        android:id="@+id/changeOperationFragment"
+        android:name="com.example.budgettracker.operations.transfer.EditOperationFragment"
+        android:label="ChangeOperationFragment" />
+    <fragment
+        android:id="@+id/changeTransferFragment"
+        android:name="com.example.budgettracker.operations.EditTransferFragment"
+        android:label="fragment_change_transfer"
+        tools:layout="@layout/fragment_edit_transfer" />
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="com.example.budgettracker.accounts.EditAccountFragment"
+        android:label="fragment_edit_account"
+        tools:layout="@layout/fragment_edit_account" >
+        <action
+            android:id="@+id/action_editAccountFragment_to_accounts"
+            app:destination="@id/accounts"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/operations" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryAnalyticsFragment"
+        android:name="com.example.budgettracker.analytics.CategoryAnalyticsFragment"
+        android:label="fragment_category_analytics"
+        tools:layout="@layout/fragment_category_analytics" />
+    <fragment
+        android:id="@+id/monthAnalyticsFragment"
+        android:name="com.example.budgettracker.analytics.MonthAnalyticsFragment"
+        android:label="MonthAnalyticsFragment" />
+    <fragment
+        android:id="@+id/plans"
+        android:name="com.example.budgettracker.plans.PlansFragment"
+        android:label="fragment_plans"
+        tools:layout="@layout/fragment_plans" />
+    <dialog
+        android:id="@+id/notificationInformation"
+        android:name="com.example.budgettracker.plans.NotificationInformation"
+        android:label="NotificationInformation" />
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.example.budgettracker.authentication.AuthenticationFragment"
+        android:label="AuthenticationFragment" >
+        <action
+            android:id="@+id/action_authenticationFragment_to_operations"
+            app:destination="@id/operations" />
+    </fragment>
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.budgettracker.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
